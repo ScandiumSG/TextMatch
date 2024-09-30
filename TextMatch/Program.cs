@@ -4,18 +4,19 @@
     {
         public static void Main(string[] args)
         {
+
             if (args.Length > 2 || args.Length < 2)
             {
                 Console.WriteLine("Invalid number of input parameters");
                 return;
             }
-
+    
             string text = args[0];
             string subtext = args[1];
-
             TextMatcher match = new TextMatcher(text);
 
             List<int> matchedResults = match.Match(subtext);
+
             if (matchedResults.Count > 0)
             {
                 Console.WriteLine(PrintIndexes(matchedResults).ToString());
@@ -29,17 +30,18 @@
         /// <returns>Comma separated string of the int values in the input list</returns>
         private static string PrintIndexes(List<int> indexes) 
         {
-            string ReturnString = "";
+            string IndexString = "";
 
+            // Iterate and string concat to return string
             for (int i = 0; i < indexes.Count - 1; i++)
             {
-                ReturnString += indexes[i].ToString() + ", ";
+                IndexString += indexes[i].ToString() + ", ";
             }
 
             // Access based on index from the end (^)
-            ReturnString += indexes[^1];
+            IndexString += indexes[^1];
 
-            return ReturnString;
+            return IndexString;
         }
     }
 }
