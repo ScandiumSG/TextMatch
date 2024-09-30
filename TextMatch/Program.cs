@@ -11,11 +11,13 @@
                 return;
             }
     
+            // Extract args
             string text = args[0];
             string subtext = args[1];
-            TextMatcher match = new TextMatcher(text);
 
-            List<int> matchedResults = match.Match(subtext);
+            // Perform matching
+            TextMatcher textMatcher = new TextMatcher(text);
+            List<int> matchedResults = textMatcher.Match(subtext);
 
             if (matchedResults.Count > 0)
             {

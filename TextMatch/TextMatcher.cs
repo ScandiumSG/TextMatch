@@ -29,6 +29,7 @@ namespace TextMatch
 
             for (int i = 0; i < textAsChars.Length; i++)
             {
+                // Subtext index set as j
                 int j = 0;
                 while (textAsChars[i + j] == subtextAsChars[j]) 
                 {
