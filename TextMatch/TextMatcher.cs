@@ -9,6 +9,7 @@ namespace TextMatch
     internal class TextMatcher
     {
         private string Text;
+
         public TextMatcher(string text) 
         {
             Text = text;
@@ -23,7 +24,22 @@ namespace TextMatch
         {
             List<int> foundIndexes = new List<int>();
 
+            char[] textAsChars = Text.ToCharArray();
+            char[] subtextAsChars = subtext.ToCharArray();
 
+            for (int i = 0; i < textAsChars.Length; i++)
+            {
+                int j = 0;
+                while (textAsChars[i + j] == subtextAsChars[j]) 
+                {
+                    if ((subtextAsChars.Length == j - 1) && (textAsChars[i + j] == subtextAsChars[j])) 
+                    {
+                        foundIndexes.Add(j);
+                        break;
+                    }
+                    j++;
+                }
+            }
 
             return foundIndexes;
         }
