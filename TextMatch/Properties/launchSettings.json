@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TextMatch": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Polly put the kettle on, polly put the kettle on, polly put the kettle on we’ll all have tea\" \"Polly\""
+    }
+  }
+}
