@@ -33,14 +33,15 @@ namespace TextMatch
                 while (textAsChars[i + j] == subtextAsChars[j]) 
                 {
                     // Out-of-bound for text
-                    if (i + j > textAsChars.Length) 
+                    if (i + j >= textAsChars.Length) 
                     {
                         break;
                     }
 
-                    if ((subtextAsChars.Length == j - 1) && (textAsChars[i + j] == subtextAsChars[j])) 
+                    if ((subtextAsChars.Length == j + 1) && (textAsChars[i + j] == subtextAsChars[j])) 
                     {
-                        foundIndexes.Add(j);
+                        // Add to return list and convert from 0-indexed to 1-indexed for human-readable-format
+                        foundIndexes.Add(i+1);
                         break;
                     }
                     j++;
