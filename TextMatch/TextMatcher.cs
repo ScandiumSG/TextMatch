@@ -24,14 +24,20 @@ namespace TextMatch
         {
             List<int> foundIndexes = new List<int>();
 
-            char[] textAsChars = Text.ToCharArray();
-            char[] subtextAsChars = subtext.ToCharArray();
+            char[] textAsChars = Text.ToLower().ToCharArray();
+            char[] subtextAsChars = subtext.ToLower().ToCharArray();
 
             for (int i = 0; i < textAsChars.Length; i++)
             {
                 int j = 0;
                 while (textAsChars[i + j] == subtextAsChars[j]) 
                 {
+                    // Out-of-bound for text
+                    if (i + j > textAsChars.Length) 
+                    {
+                        break;
+                    }
+
                     if ((subtextAsChars.Length == j - 1) && (textAsChars[i + j] == subtextAsChars[j])) 
                     {
                         foundIndexes.Add(j);
