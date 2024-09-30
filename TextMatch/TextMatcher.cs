@@ -51,5 +51,26 @@ namespace TextMatch
 
             return foundIndexes;
         }
+
+        /// <summary>
+        /// Print the list of ints to a single string.
+        /// </summary>
+        /// <param name="indexes">List of ints</param>
+        /// <returns>Comma separated string of the int values in the input list</returns>
+        public static string PrintIndexes(List<int> indexes)
+        {
+            string IndexString = "";
+
+            // Iterate and string concat to return string
+            for (int i = 0; i < indexes.Count - 1; i++)
+            {
+                IndexString += indexes[i].ToString() + ", ";
+            }
+
+            // Access based on index from the end (^)
+            IndexString += indexes[^1];
+
+            return IndexString;
+        }
     }
 }
