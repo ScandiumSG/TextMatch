@@ -1,8 +1,8 @@
 ﻿namespace TextMatch
 {
-    internal class Program
+    public class Program
     {
-        public static void main(string[] args)
+        public static void Main(string[] args)
         {
             if (args.Length > 2 || args.Length < 2)
             {
@@ -22,9 +22,22 @@
             }
         }
 
+        /// <summary>
+        /// Print the list of ints to a single string.
+        /// </summary>
+        /// <param name="indexes">List of ints</param>
+        /// <returns>Comma separated string of the int values in the input list</returns>
         private static string PrintIndexes(List<int> indexes) 
         {
             string ReturnString = "";
+
+            for (int i = 0; i < indexes.Count - 1; i++)
+            {
+                ReturnString += indexes[i].ToString() + ", ";
+            }
+
+            // Access based on index from the end (^)
+            ReturnString += indexes[^1];
 
             return ReturnString;
         }
